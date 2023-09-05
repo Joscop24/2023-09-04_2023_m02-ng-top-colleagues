@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - "master"
-
+permissions:
+  content: write
 jobs:
   build:
     name: Build Angular App

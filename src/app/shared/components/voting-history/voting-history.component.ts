@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Vote } from 'src/app/models/vote';
+import { VoteService } from "../../../providers/vote.service";
+
 
 @Component({
   selector: 'tc-voting-history',
@@ -9,6 +11,11 @@ import { Vote } from 'src/app/models/vote';
 export class VotingHistoryComponent {
 
   @Input() voteArrayHistory :Array<Vote> = [];
+
+  voteService = inject(VoteService);
+
+  votes: Vote[] = this.voteService.list();
+
 
   supprimer(val :number) {
     console.log(val)

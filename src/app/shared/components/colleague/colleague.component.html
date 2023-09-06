@@ -1,10 +1,10 @@
 <!--Component Card Collegue-->
 
 <div class="card text-center border border-dark shadow-lg" style="width: 18rem;">
-  <img src="{{collegue.photo}}" class="card-img-top" alt="...">
+  <img src="{{colleague.photo}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{collegue.pseudo | uppercase}}</h5>
-    <h6> {{collegue.score}} </h6>
-    <tc-like-hate>
-  <div>
+    <h5 class="card-title">{{colleague.pseudo | uppercase}}</h5>
+    <h6> {{colleague.score}} </h6>
+    <tc-like-hate [likeButtonDisabled]="likeButtonDisabled" [hateButtonDisabled]="hateButtonDisabled" (likeHateEmiter)="updateScore($event)"></tc-like-hate>
+  </div>
 </div>

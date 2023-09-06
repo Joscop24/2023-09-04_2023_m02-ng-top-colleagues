@@ -4,7 +4,7 @@
   <img src="{{colleague.photo}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{colleague.pseudo | uppercase}}</h5>
-    <h6> {{colleague.score}} </h6>
+    <h6> {{colleague.score | score}} </h6>
     <tc-like-hate [likeButtonDisabled]="likeButtonDisabled" [hateButtonDisabled]="hateButtonDisabled" (likeHateEmiter)="updateScore($event)"></tc-like-hate>
   </div>
 </div>

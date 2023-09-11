@@ -14,7 +14,14 @@ export class ColleagueListComponent {
 
   colleagueService = inject(ColleagueService);
 
-  colleagues: Colleague[] = this.colleagueService.list();
+  colleagues: Colleague[] = [];
+
+  constructor(private colleguesSrv:ColleagueService) {
+    this.colleguesSrv.changeColleagues().subscribe(tabcoll => this.colleagues = tabcoll);
+  }
+
+
+
   updateVote(val :Vote){
     console.log("Dans colleague list : ",val);
     this.likeOrHateEvent.emit(val);

@@ -1,6 +1,7 @@
-import { Component, Input, inject } from '@angular/core';
+import {Component, Input, inject, OnInit} from '@angular/core';
 import { Vote } from 'src/app/models/vote';
 import { VoteService } from "../../../providers/vote.service";
+import {Observable, Subscription} from "rxjs";
 
 
 @Component({
@@ -8,17 +9,23 @@ import { VoteService } from "../../../providers/vote.service";
   templateUrl: './voting-history.component.html',
   styleUrls: ['./voting-history.component.scss']
 })
-export class VotingHistoryComponent {
+export class VotingHistoryComponent implements OnInit {
+  voteArrayHistory: Array<Vote> = [];
+  subscription!: Subscription
+  constructor(private voteService: VoteService) {}
 
-  @Input() voteArrayHistory :Array<Vote> = [];
+  ngOnInit(): void {
+    this.subscription != this.voteService.abonner
+      .subscribe(vote => {
+        this.voteArrayHistory.unshift(vote)
+        console.log(vote);
 
-  voteService = inject(VoteService);
-
-  votes: Vote[] = this.voteService.list();
-
+      })
+  }
 
   supprimer(val :number) {
     console.log(val)
-    this.voteArrayHistory.splice(val, 1);
+  this.voteArrayHistory.splice(val, 1);
   }
+
 }

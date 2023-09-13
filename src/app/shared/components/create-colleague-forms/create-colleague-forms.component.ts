@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CreateColleague} from "../../../models/create-colleague";
 import {ColleagueService} from "../../../providers/colleague.service";
+import { FormsModule} from "@angular/forms";
+import { NgForm} from "@angular/forms";
 
 @Component({
   selector: 'tc-create-colleague-forms',

@@ -1,21 +1,21 @@
 <div class="container mt-4">
   <h2>Formulaire d'Ajout</h2>
-  <form>
+  <form #myForm="ngForm" (ngSubmit)="onSubmitForm()">
     <div class="form-group">
       <label for="pseudo">Pseudo:</label>
-      <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" required>
+      <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" [(ngModel)]="creationColleague.pseudo" #pseudoLocal="ngModel" required minlength="2">
     </div>
     <div class="form-group">
       <label for="nom">Nom:</label>
-      <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" required minlength="2">
+      <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" [(ngModel)]="creationColleague.first" #pseudoLocal="ngModel" required minlength="2">
     </div>
     <div class="form-group">
       <label for="prenom">Prénom:</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required minlength="2">
+      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" [(ngModel)]="creationColleague.last" #pseudoLocal="ngModel" required minlength="2">
     </div>
     <div class="form-group">
       <label for="photoUrl">URL de la Photo:</label>
-      <input type="text" class="form-control" id="photoUrl" name="photoUrl" placeholder="Entrez l'URL de la photo" required>
+      <input type="text" class="form-control" id="photoUrl" name="photoUrl" placeholder="Entrez l'URL de la photo" [(ngModel)]="creationColleague.photo" #pseudoLocal="ngModel" required>
     </div>
     <button type="submit" (click)="onSubmitForm()" class="btn btn-primary mt-2">Ajouter</button>
   </form>

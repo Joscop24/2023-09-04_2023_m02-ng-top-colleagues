@@ -8,6 +8,7 @@ import { VotingHistoryComponent } from './components/voting-history/voting-histo
 import { CounterComponent } from './components/counter/counter.component';
 import { HttpClientModule} from "@angular/common/http";
 import { CreateColleagueFormsComponent } from './components/create-colleague-forms/create-colleague-forms.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CreateColleagueFormsComponent } from './components/create-colleague-for
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

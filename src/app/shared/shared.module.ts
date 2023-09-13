@@ -7,6 +7,7 @@ import { ScorePipe } from './pipes/score.pipe';
 import { VotingHistoryComponent } from './components/voting-history/voting-history.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { HttpClientModule} from "@angular/common/http";
+import { CreateColleagueFormsComponent } from './components/create-colleague-forms/create-colleague-forms.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule} from "@angular/common/http";
     ColleagueListComponent,
     ScorePipe,
     VotingHistoryComponent,
-    CounterComponent
+    CounterComponent,
+    CreateColleagueFormsComponent
   ],
   exports: [
     LikeHateComponent,
@@ -24,7 +26,8 @@ import { HttpClientModule} from "@angular/common/http";
     ColleagueListComponent,
     ScorePipe,
     VotingHistoryComponent,
-    CounterComponent
+    CounterComponent,
+    CreateColleagueFormsComponent
   ],
   imports: [
     CommonModule,

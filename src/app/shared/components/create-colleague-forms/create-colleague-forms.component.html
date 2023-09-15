@@ -1,10 +1,16 @@
 <div class="container mt-4">
   <h2>Formulaire d'Ajout</h2>
-  <form #myForm="ngForm" (ngSubmit)="onSubmitForm()">
+  <form tcFirstLastValidator (ngSubmit)="onSubmitForm(creationColleagueForm)" #creationColleagueForm="ngForm">
+    <div *ngIf="creationColleagueForm.errors">
+      {{ creationColleagueForm.errors['firstLast'] | json }}
+    </div>
     <div class="form-group">
       <label for="pseudo">Pseudo:</label>
-      <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" [(ngModel)]="creationColleague.pseudo" #pseudoLocal="ngModel" required minlength="2">
-    </div>
+      <input tcPseudoValidator id="pseudo" name="pseudo" type="text" class="form-control" [(ngModel)]="creationColleague.pseudo" name="pseudo" #pseudoLocal="ngModel" required>
+      <p *ngIf="pseudoLocal.errors && pseudoLocal.dirty">
+        le pseudo {{ pseudoLocal.value }} existe déjà!
+      </p>
+         </div>
     <div class="form-group">
       <label for="nom">Nom:</label>
       <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" [(ngModel)]="creationColleague.first" #pseudoLocal="ngModel" required minlength="2">
@@ -17,6 +23,6 @@
       <label for="photoUrl">URL de la Photo:</label>
       <input type="text" class="form-control" id="photoUrl" name="photoUrl" placeholder="Entrez l'URL de la photo" [(ngModel)]="creationColleague.photo" #pseudoLocal="ngModel" required>
     </div>
-    <button type="submit" (click)="onSubmitForm()" class="btn btn-primary mt-2">Ajouter</button>
+    <button type="submit" class="btn btn-primary mt-2">Ajouter</button>
   </form>
 </div>

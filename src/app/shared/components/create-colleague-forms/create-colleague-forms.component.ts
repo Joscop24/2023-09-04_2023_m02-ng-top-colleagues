@@ -15,7 +15,7 @@ export class CreateColleagueFormsComponent {
     pseudo: "",
     first: "",
     last: "",
-    photo: ""
+    photo: "https://ucarecdn.com/c65e1532-fbdd-4c23-8f2b-e03f99af9759/-/crop/900x900/403,0/-/preview/-/progressive/yes/-/format/auto/"
   };
 
   errorReturned: string = "";
@@ -23,24 +23,18 @@ export class CreateColleagueFormsComponent {
   constructor(private colleagueService: ColleagueService) {
   }
 
-  onSubmitForm() {
+  onSubmitForm(creationColleagueForm: NgForm) {
     console.log(this.creationColleague);
     this.colleagueService
       .publier(this.creationColleague)
       .subscribe({
         next: (v) => console.log(v),
         error: (e) => {
-          console.error(e)
           this.errorReturned = e
         },
         complete: () => {
           console.info('complete')
-          this.creationColleague = {
-            pseudo: "",
-            first: "",
-            last: "",
-            photo: ""
-          }
+          creationColleagueForm.reset();
         }
       })
   }

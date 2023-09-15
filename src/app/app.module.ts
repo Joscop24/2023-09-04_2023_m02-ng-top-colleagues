@@ -8,6 +8,8 @@ import { WelcomeModule} from "./pages/welcome/welcome.module";
 import { CreateColleagueModule} from "./pages/create-colleague/create-colleague.module";
 import {SharedModule} from "./shared/shared.module";
 
+import { CreateColleagueReactiveModule} from "./pages/create-colleague-reactive/create-colleague-reactive.module";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,8 +18,9 @@ import {SharedModule} from "./shared/shared.module";
     BrowserModule,
     NgbModule,
     WelcomeModule,
+    SharedModule,
     CreateColleagueModule,
-    SharedModule
+    CreateColleagueReactiveModule
   ],
   providers: [],
   bootstrap: [AppComponent]
